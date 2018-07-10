@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="totalLeads">
+        <![CDATA[
+        SELECT COUNT(*) as LeadsCount
+            FROM   leads l, quotes q, reps r
+            WHERE q.lead_id = l.id and q.rep_id = r.id
+        ]]>
+    </sql-query>
+
+    <sql-query name="totalLeads__count">
+        <![CDATA[
+        select count(*) from (SELECT COUNT(*) as LeadsCount
+            FROM   leads l, quotes q, reps r
+            WHERE q.lead_id = l.id and q.rep_id = r.id) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="salesByReps">
+        <![CDATA[
+        select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales
+            FROM leads l
+            JOIN quotes q on q.lead_id = l.id
+            JOIN sales s on s.quote_id = q.id
+            RIGHT OUTER JOIN reps r on r.id = q.rep_id
+            WHERE r.channel_type = :channel
+            GROUP BY Name
+            ORDER BY Sales desc, Leads desc
+        ]]>
+    <query-param name="channel" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="salesByReps__count">
+        <![CDATA[
+        select count(*) from (select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales
+            FROM leads l
+            JOIN quotes q on q.lead_id = l.id
+            JOIN sales s on s.quote_id = q.id
+            RIGHT OUTER JOIN reps r on r.id = q.rep_id
+            WHERE r.channel_type = :channel
+            GROUP BY Name
+            ORDER BY Sales desc, Leads desc) wmTempTable
+        ]]>
+    <query-param name="channel" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="topTrendingProducts">
+        <![CDATA[
+        SELECT p.name as Product, SUM(s.sales) as Sales
+            FROM Products p, Sales s
+            WHERE p.id = s.product_id
+            GROUP BY p.id
+            ORDER BY Sales DESC
+        ]]>
+    </sql-query>
+
+    <sql-query name="topTrendingProducts__count">
+        <![CDATA[
+        select count(*) from (SELECT p.name as Product, SUM(s.sales) as Sales
+            FROM Products p, Sales s
+            WHERE p.id = s.product_id
+            GROUP BY p.id
+            ORDER BY Sales DESC) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totalSalesAndRevenue">
+        <![CDATA[
+        SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales
+FROM sales s,  quotes q, reps r 
+WHERE s.quote_id = q.id and q.rep_id = r.id
+        ]]>
+    </sql-query>
+
+    <sql-query name="totalSalesAndRevenue__count">
+        <![CDATA[
+        select count(*) from (SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales
+FROM sales s,  quotes q, reps r 
+WHERE s.quote_id = q.id and q.rep_id = r.id) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

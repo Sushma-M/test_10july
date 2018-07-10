@@ -3,11 +3,23 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "Leads",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Sales",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SalesReps",
   "type" : "PAGE",
   "params" : [ ]
 }, {

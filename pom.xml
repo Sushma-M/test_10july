@@ -13,7 +13,35 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/authService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/salesdb/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/salesforceLeads/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/wsheartrate/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -101,7 +129,11 @@
                         </goals>
                         <configuration>
                             <sources>
+                                <source>services/authService/src</source>
+                                <source>services/salesdb/src</source>
+                                <source>services/salesforceLeads/src</source>
                                 <source>services/securityService/src</source>
+                                <source>services/wsheartrate/src</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -269,6 +301,16 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -296,11 +338,11 @@
         </dependencies>
     </dependencyManagement>
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.lib.directory>${basedir}/lib</project.lib.directory>
         <profile.props.file>development.properties</profile.props.file>
         <spring.version>4.3.14.RELEASE</spring.version>
         <spring.security.version>4.2.4.RELEASE</spring.security.version>
         <wavemaker.studio.version>9.9.9.5087</wavemaker.studio.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.lib.directory>${basedir}/lib</project.lib.directory>
     </properties>
 </project>

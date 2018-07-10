@@ -1,0 +1,13 @@
+[ {
+  "providerId" : "salesforce",
+  "authorizationUrl" : "https://login.salesforce.com/services/oauth2/authorize",
+  "accessTokenUrl" : "https://login.salesforce.com/services/oauth2/token",
+  "clientId" : "3MVG9Y6d_Btp4xp6FwzPBBDnyG_Co_fDlCeQ7EmgxeRjVK5Ggh87QlQiqHmJPQmGibg62lTc.pJ5_XqmQSoMv",
+  "clientSecret" : "885461730160864184",
+  "sendAccessTokenAs" : "HEADER",
+  "accessTokenParamName" : "Bearer",
+  "scopes" : [ {
+    "name" : "full",
+    "value" : "full"
+  } ]
+} ]

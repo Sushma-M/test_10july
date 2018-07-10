@@ -1,0 +1,39 @@
+<wm-page pagetitle="Sales Reps" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1"> 
+                        <wm-label padding="unset 0.5em" caption="Sales Reps" class="h2" name="label1"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3"> 
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RepsList1" dataset="bind:Variables.SalesdbRepsData.dataSet" navigation="Basic" selectfirstitem="true"> 
+                            <wm-listtemplate layout="inline" name="listtemplate1"> 
+                                <wm-container class="media-left" name="container1"> 
+                                    <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.SalesdbRepsData.dataSet.picurl" class="media-object"></wm-picture> 
+                                </wm-container> 
+                                <wm-container class="media-body" name="container2"> 
+                                    <wm-label class="p media-heading" name="Name" caption="bind:Variables.SalesdbRepsData.dataSet.name" fontunit="em" padding="unset unset unset 1.25em"></wm-label> 
+                                    <wm-label padding="unset 0.5em unset 1.2em" name="city" caption="bind:Variables.SalesdbRepsData.dataSet.data[$i].city" class="h5"></wm-label> 
+                                </wm-container> 
+                            </wm-listtemplate> 
+                        </wm-list> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"> 
+                        <wm-prefab prefabname="googlemaps" name="googlemaps1" address="city" locations="bind:Widgets.RepsList1.selecteditem" markertype="Address"></wm-prefab> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn5"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

@@ -1,0 +1,115 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Swagger API documentation for authService",
+    "version" : "2.0",
+    "title" : "authServiceService Swagger Documentation",
+    "x-WM-SERVICE_ID" : "authService",
+    "x-WM-SERVICE_TYPE" : "authService"
+  },
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "OAuth2RuntimeIntegrationController",
+    "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.auth.oauth2.OAuth2RuntimeIntegrationController",
+    "x-WM-VERSION" : "",
+    "x-WM-CONTROLLER_NAME" : "OAuth2RuntimeIntegration"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/oauth2/{providerId}/authorizationUrl" : {
+      "get" : {
+        "tags" : [ "OAuth2RuntimeIntegrationController" ],
+        "operationId" : "OAuth2RuntimeIntegrationController_getAuthorizationUrl",
+        "parameters" : [ {
+          "name" : "providerId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "7330a3be-5c7a-4135-a793-2798546a44e3",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        }, {
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "2b766b01-38d7-46ed-bebf-1c1b01cc6783",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        }, {
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "9537ee70-01f9-48fb-8985-14524ffe3e26",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "getAuthorizationUrl",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/oauth2/{providerId}/",
+      "x-WM-TAG" : "OAuth2RuntimeIntegrationController",
+      "x-WM-RELATIVE_PATH" : "authorizationUrl",
+      "x-WM-COMPLETE_PATH" : "/oauth2/{providerId}/authorizationUrl"
+    },
+    "/oauth2/{providerId}/callback" : {
+      "get" : {
+        "tags" : [ "OAuth2RuntimeIntegrationController" ],
+        "operationId" : "OAuth2RuntimeIntegrationController_callBack",
+        "produces" : [ "text/html" ],
+        "parameters" : [ {
+          "name" : "providerId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "a4ba1460-fed7-4ff5-be52-93b720f809d4",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        }, {
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "5405e70e-e1eb-4384-9033-62384fcc8225",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        }, {
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "32c6c799-be63-4b12-8793-1542b36a85c3",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        }, {
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : true,
+          "x-WM-UUID" : "0cbed74c-ec1f-4406-a6d0-ab28f98fb68c",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "callBack",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/oauth2/{providerId}/",
+      "x-WM-TAG" : "OAuth2RuntimeIntegrationController",
+      "x-WM-RELATIVE_PATH" : "callback",
+      "x-WM-COMPLETE_PATH" : "/oauth2/{providerId}/callback"
+    }
+  },
+  "definitions" : { }
+}

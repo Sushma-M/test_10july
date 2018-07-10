@@ -1,0 +1,28 @@
+{
+  "sfLeadsVar" : {
+    "_id" : "wm-sfLeadsVar-wm.ServiceVariable-1530613256330",
+    "name" : "sfLeadsVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "SELECT name, AccountNumber, AnnualRevenue, Phone, Industry, NumberOfEmployees, BillingStreet, BillingCity, Website, latitude__c, longitude__c FROM Account",
+      "type" : "string"
+    } ],
+    "type" : "salesforceLeads.RootResponse",
+    "service" : "salesforceLeads",
+    "operation" : "invoke",
+    "operationId" : "salesforceLeads_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  }
+}

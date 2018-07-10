@@ -1,0 +1,147 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "9623f92a-e838-4622-aa9a-25c705a1ca73",
+    "x-WM-SERVICE_ID" : "salesforce",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "host" : "ap1.salesforce.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/salesforceLeads/invoke/data/v40.0/query" : {
+      "get" : {
+        "tags" : [ "RestServiceVirtualController" ],
+        "operationId" : "salesforceLeads_RestServiceVirtualController-invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "description" : "q",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-EDITABLE" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "security" : [ {
+          "oauth2" : [ ]
+        } ],
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/salesforceLeads/invoke/data/v40.0/query",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.salesforceLeads.scheme}://${rest.salesforceLeads.host}${rest.salesforceLeads.basepath}/data/v40.0/query"
+    }
+  },
+  "securityDefinitions" : {
+    "oauth2" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://login.salesforce.com/services/oauth2/authorize",
+      "tokenUrl" : "https://login.salesforce.com/services/oauth2/token",
+      "sendAccessTokenAs" : "HEADER",
+      "accessTokenParamName" : "Bearer",
+      "x-WM-PROVIDER_ID" : "salesforce"
+    }
+  },
+  "definitions" : {
+    "recordsEntryItem" : {
+      "required" : [ "AccountNumber", "AnnualRevenue", "BillingCity", "BillingStreet", "Industry", "Latitude__c", "Longitude__c", "Name", "NumberOfEmployees", "Phone", "Website", "attributes" ],
+      "properties" : {
+        "Industry" : {
+          "type" : "string"
+        },
+        "BillingStreet" : {
+          "type" : "string"
+        },
+        "BillingCity" : {
+          "type" : "string"
+        },
+        "Phone" : {
+          "type" : "string"
+        },
+        "Latitude__c" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "Longitude__c" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "Website" : {
+          "type" : "string"
+        },
+        "attributes" : {
+          "$ref" : "#/definitions/attributes"
+        },
+        "NumberOfEmployees" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "AnnualRevenue" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Name" : {
+          "type" : "string"
+        },
+        "AccountNumber" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "salesforceLeads.recordsEntryItem",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    },
+    "attributes" : {
+      "required" : [ "type", "url" ],
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "salesforceLeads.attributes",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    },
+    "RootResponse" : {
+      "required" : [ "done", "records", "totalSize" ],
+      "properties" : {
+        "totalSize" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/recordsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "done" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "salesforceLeads.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    }
+  }
+}

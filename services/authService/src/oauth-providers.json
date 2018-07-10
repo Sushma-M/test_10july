@@ -1,0 +1,13 @@
+[ {
+  "providerId" : "salesforce",
+  "authorizationUrl" : "${oauth2.salesforce.authorizationUrl}",
+  "accessTokenUrl" : "${oauth2.salesforce.accessTokenUrl}",
+  "clientId" : "${oauth2.salesforce.clientId}",
+  "clientSecret" : "${oauth2.salesforce.clientSecret}",
+  "sendAccessTokenAs" : null,
+  "accessTokenParamName" : null,
+  "scopes" : [ {
+    "name" : "full",
+    "value" : "full"
+  } ]
+} ]

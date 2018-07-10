@@ -1,0 +1,14 @@
+.wm-app .panel-custom-info .panel-heading {
+    color: #ffffff;
+    background-color: #579bf2;
+}
+
+.wm-app .panel-custom-success .panel-heading {
+    color: #ffffff;
+    background-color: #73ba35;
+}
+
+.wm-app .panel-custom-danger .panel-heading {
+    color: #ffffff;
+    background-color: #f96868;
+}

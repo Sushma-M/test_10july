@@ -1,11 +1,59 @@
 <wm-page name="mainpage" pagetitle="Main">
-    <wm-header content="header" name="header" height="auto"></wm-header>
-    <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
-    <wm-content name="content">
-        <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow22_2" padding="0em 0em .5em 0em ">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn44_3" padding=".5em">
+                        <wm-panel iconclass="wi wi-location-city" autoclose="outsideClick" title="bind:appLocale.Testmessage" name="panel1" class="panel-custom-success">
+                            <wm-panel-footer name="panel_footer1">
+                                <wm-label padding="unset 0.5em" class="text-muted" caption="Leads Generated" name="label7"></wm-label>
+                            </wm-panel-footer>
+                            <wm-label name="label40_2" caption="bind:Variables.TotalLeads.dataSet[$i].leadscount" fontsize="2" fontunit="em"></wm-label>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn45_3" padding=".5em">
+                        <wm-panel iconclass="wi wi-library-books" autoclose="outsideClick" title="Quotes" class="panel-custom-info" name="panel2">
+                            <wm-panel-footer name="panel_footer2">
+                                <wm-label padding="unset 0.5em" class="text-muted" caption="Quotes Created" name="label8"></wm-label>
+                            </wm-panel-footer>
+                            <wm-label caption="bind:Variables.TotalSalesAndRevenue.dataSet[$i].totalsales" fontsize="2" fontunit="em" name="label14"></wm-label>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn46_2" padding=".5em">
+                        <wm-panel iconclass="wi wi-monetization-on" autoclose="outsideClick" title="Sales" class="panel-custom-danger" name="panel3">
+                            <wm-panel-footer name="panel_footer3">
+                                <wm-label padding="unset 0.5em" class="text-muted" caption="Sales Converted" name="label10"></wm-label>
+                            </wm-panel-footer>
+                            <wm-label caption="bind:Variables.TotalSalesAndRevenue.dataSet[$i].salesrevenue | toCurrency: '$'" fontsize="2" fontunit="em" name="label16"></wm-label>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="0em .5em">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn21" padding="0em .5em 0em 0em ">
+                        <wm-chart type="Bar" title="Trending Products" height="450px" iconclass="wi wi-bar-chart" name="chart3" theme="Orient" showxaxis="true" showvalues="false" staggerlabels="false" xaxislabeldistance="30" ynumberformat=",r" class="panel-default"
+                            dataset="bind:Variables.SalesVar.dataSet" yaxisdatakey="sales" aggregation="sum" xaxisdatakey="products.name" aggregationcolumn="sales" groupby="products.name" orderby="sales:desc"></wm-chart>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn22" padding="0em 0em 0em .5em ">
+                        <wm-chart type="Area" title="Sales by Month" height="450px" iconclass="fa fa-area-chart" name="chart4_1" class="panel-default" interpolation="cardinal" theme="Retro" dataset="bind:Variables.SalesVar.dataSet" yaxisdatakey="sales" aggregation="sum"
+                            xaxisdatakey="entryDate" aggregationcolumn="sales" groupby="entryDate" xdateformat="%b"></wm-chart>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow9" padding="unset 0.5em">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                        <wm-chart type="Pie" title="Pie Chart" height="350px" iconclass="wi wi-pie-chart" name="chart4" dataset="bind:Variables.SalesByRepsVar.dataSet" xaxisdatakey="name" yaxisdatakey="sales" showlegend="hide" labeltype="key-value" ynumberformat="Thousand"
+                            theme="Retro" showlabels="outside"></wm-chart>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn13" padding="unset unset unset 0.5em">
+                        <wm-chart type="Line" title="Sales Ticker" height="350px" iconclass="wi wi-line-chart" name="chart3_1" dataset="bind:Variables.wsheartratevar.dataSet" xaxisdatakey="time" yaxisdatakey="value" interpolation="cardinal" xdateformat="%X"
+                            formattype="date"></wm-chart>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-select class="select-locale" dataset="bind:Variables.supportedLocale.dataSet" on-change="App.changeLocale($scope);App.reload();" placeholder="Select Language" name="select1"></wm-select>
         </wm-page-content>
-        <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
     </wm-content>
-    <wm-footer name="footer" content="footer"></wm-footer>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

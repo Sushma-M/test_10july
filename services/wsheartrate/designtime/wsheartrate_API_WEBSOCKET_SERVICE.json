@@ -1,0 +1,53 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "fbee1706-98ba-4303-bdbe-318cdbc72425",
+    "x-WM-SERVICE_ID" : "wavemakeronline",
+    "x-WM-SERVICE_TYPE" : "WebSocketService"
+  },
+  "host" : "websocket-demos.wavemakeronline.com:443",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "WebSocketServiceVirtualController",
+    "description" : "WebSocket service swagger documentation"
+  } ],
+  "schemes" : [ "wss" ],
+  "paths" : {
+    "/wsheartrate/invoke/heartrate" : {
+      "get" : {
+        "tags" : [ "WebSocketServiceVirtualController" ],
+        "operationId" : "wsheartrate_WebSocketServiceVirtualController-invoke",
+        "security" : [ {
+          "WM_WebSocket_Service_Authorization" : [ ]
+        } ],
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "x-WM-IN-PARAMS-TYPE" : [ ],
+        "x-WM-OUT-PARAMS-TYPE" : [ "#/definitions/RootResponse" ]
+      },
+      "x-WM-BASE_PATH" : "/wsheartrate/invoke/heartrate",
+      "x-WM-TAG" : "WebSocketServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${websocket.wsheartrate.scheme}://${websocket.wsheartrate.host}${websocket.wsheartrate.basepath}/heartrate"
+    }
+  },
+  "definitions" : {
+    "RootResponse" : {
+      "properties" : {
+        "time" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "value" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "wsheartrate.RootResponse",
+      "x-WM-TAGS" : [ "WebSocketServiceVirtualController" ]
+    }
+  }
+}

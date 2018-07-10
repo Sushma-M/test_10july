@@ -1,0 +1,38 @@
+{
+  "SalesForce_SalesForceAPI_executeQuery" : {
+    "controller" : null,
+    "wmServiceOperationInfo" : {
+      "methodType" : null,
+      "relativePath" : "/salesForceAPI/executeQuery",
+      "name" : "executeQuery",
+      "produces" : null,
+      "httpMethod" : "POST",
+      "parameters" : [ {
+        "parameterType" : "QUERY",
+        "name" : "username",
+        "type" : null
+      }, {
+        "parameterType" : "QUERY",
+        "name" : "password",
+        "type" : null
+      }, {
+        "parameterType" : "QUERY",
+        "name" : "clientId",
+        "type" : null
+      }, {
+        "parameterType" : "QUERY",
+        "name" : "clientSecret",
+        "type" : null
+      }, {
+        "parameterType" : "QUERY",
+        "name" : "query",
+        "type" : null
+      } ],
+      "consumes" : null
+    },
+    "service" : "SalesForceAPI",
+    "operationType" : "executeQuery",
+    "id" : "SalesForce_SalesForceAPI_executeQuery",
+    "type" : "map"
+  }
+}

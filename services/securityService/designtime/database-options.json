@@ -1,0 +1,19 @@
+{
+  "modelName" : "salesdb",
+  "entityName" : "Reps",
+  "tableName" : "REPS",
+  "unamePropertyName" : "username",
+  "unameColumnName" : "USERNAME",
+  "uidPropertyName" : "id",
+  "uidColumnName" : "ID",
+  "pwPropertyName" : "password",
+  "pwColumnName" : "PASSWORD",
+  "rolePropertyName" : "role",
+  "roleColumnName" : "ROLE",
+  "useRolesQuery" : false,
+  "rolesByUsernameQuery" : "",
+  "tenantIdField" : null,
+  "defTenantId" : 0,
+  "tenantIdPropertyName" : null,
+  "queryType" : "HQL"
+}

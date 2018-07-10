@@ -1,0 +1,173 @@
+{
+  "salesByReps" : {
+    "name" : "salesByReps",
+    "description" : "salesByReps",
+    "version" : "V2",
+    "queryString" : "select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales\n            FROM leads l\n            JOIN quotes q on q.lead_id = l.id\n            JOIN sales s on s.quote_id = q.id\n            RIGHT OUTER JOIN reps r on r.id = q.rep_id\n            WHERE r.channel_type = :channel\n            GROUP BY Name\n            ORDER BY Sales desc, Leads desc",
+    "countQueryString" : "select count(*) from (select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales\n            FROM leads l\n            JOIN quotes q on q.lead_id = l.id\n            JOIN sales s on s.quote_id = q.id\n            RIGHT OUTER JOIN reps r on r.id = q.rep_id\n            WHERE r.channel_type = :channel\n            GROUP BY Name\n            ORDER BY Sales desc, Leads desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "channel",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "2",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.salesdb.models.query.SalesByRepsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "NAME",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LEADS",
+        "fieldName" : "leads",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "SALES",
+        "fieldName" : "sales",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "topTrendingProducts" : {
+    "name" : "topTrendingProducts",
+    "description" : "returns the top trending products of the week",
+    "version" : "V1",
+    "queryString" : "SELECT p.name as Product, SUM(s.sales) as Sales\n            FROM Products p, Sales s\n            WHERE p.id = s.product_id\n            GROUP BY p.id\n            ORDER BY Sales DESC",
+    "countQueryString" : "select count(*) from (SELECT p.name as Product, SUM(s.sales) as Sales\n            FROM Products p, Sales s\n            WHERE p.id = s.product_id\n            GROUP BY p.id\n            ORDER BY Sales DESC) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.salesdb.models.query.TopTrendingProductsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "PRODUCT",
+        "fieldName" : "product",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "SALES",
+        "fieldName" : "sales",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totalLeads" : {
+    "name" : "totalLeads",
+    "description" : "totalLeads",
+    "version" : "V2",
+    "queryString" : "SELECT COUNT(*) as LeadsCount\r\n            FROM   leads l, quotes q, reps r\r\n            WHERE q.lead_id = l.id and q.rep_id = r.id",
+    "countQueryString" : "select count(*) from (SELECT COUNT(*) as LeadsCount\r\n            FROM   leads l, quotes q, reps r\r\n            WHERE q.lead_id = l.id and q.rep_id = r.id) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.salesdb.models.query.TotalLeadsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "LEADSCOUNT",
+        "fieldName" : "leadscount",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totalSalesAndRevenue" : {
+    "name" : "totalSalesAndRevenue",
+    "description" : "totalSalesAndRevenue",
+    "version" : "V2",
+    "queryString" : "SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales\r\nFROM sales s,  quotes q, reps r \r\nWHERE s.quote_id = q.id and q.rep_id = r.id",
+    "countQueryString" : "select count(*) from (SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales\r\nFROM sales s,  quotes q, reps r \r\nWHERE s.quote_id = q.id and q.rep_id = r.id) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.salesdb.models.query.TotalSalesAndRevenueResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "SALESREVENUE",
+        "fieldName" : "salesrevenue",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "TOTALSALES",
+        "fieldName" : "totalsales",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}
